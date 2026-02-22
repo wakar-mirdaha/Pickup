@@ -16,15 +16,15 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
     return (
         <div
            className="
-flex flex-col
-bg-slate-900
-border border-slate-800
-rounded-2xl
-overflow-hidden
-shadow-lg
-hover:shadow-black-500/20
-transition duration-300
-h-full
+                        flex flex-col
+                        bg-slate-900
+                        border border-slate-800
+                        rounded-2xl
+                        overflow-hidden
+                        shadow-lg
+                        hover:shadow-black-500/20
+                        transition duration-300
+                        h-full
 "
         >
             {/* Image */}

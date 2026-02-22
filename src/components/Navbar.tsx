@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {cartQuantity > 0 && (
         <button onClick={openCart} className="relative group">
-          <img src="/public/images/shopping-cart.svg" alt="cart" 
+          <img src="/images/shopping-cart.svg" alt="cart" 
           className="h-10 w-10 cursor-pointer"/>
           <div className="
             absolute -top-2 -right-2
