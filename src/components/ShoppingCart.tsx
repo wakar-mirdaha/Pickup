@@ -24,7 +24,7 @@ export function ShoppingCart( {isOpen}: ShoppingCartProps) {
                         </button>
                     </div>
 
-                    <div className="flex-grow overflow-y-auto ">
+                    <div className="grow overflow-y-auto ">
                         {cartItems.map(item => (
                             <CartItem key={item.id} {...item} />
                         ))}

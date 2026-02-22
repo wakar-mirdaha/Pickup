@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
-   <div className="min-h-screen bg-gradient-to-br from-digital-blue-950 via-digital-blue-900 to-black text-white">
+   <div className="min-h-screen bg-linear-to-br from-digital-blue-950 via-digital-blue-900 to-black text-white">
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-6 py-28 relative overflow-hidden">
@@ -27,7 +27,7 @@ Next-Level Digital Shopping
           <Link
             to="/store"
             className="px-8 py-3 rounded-full font-semibold 
-            bg-gradient-to-r from-blue-500 via-sky-500 to-indigo-500
+            bg-linear-to-r from-blue-500 via-sky-500 to-indigo-500
              text-xl"
           >
             Explore Store
@@ -90,7 +90,7 @@ Next-Level Digital Shopping
         <Link
           to="/store"
           className="px-8 py-3 rounded-full text-lg font-semibold 
-          bg-gradient-to-r from-blue-500 via-sky-500 to-indigo-500 
+          bg-linear-to-r from-blue-500 via-sky-500 to-indigo-500 
           hover:scale-100 transition duration-300 shadow-xl"
         >
           Shop Now

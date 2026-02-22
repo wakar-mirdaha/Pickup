@@ -33,7 +33,7 @@ h-full
             </div>
 
             {/* Content */}
-            <div className="flex flex-col flex-grow p-6 text-white">
+            <div className="flex flex-col grow p-6 text-white">
                 <div className="flex justify-between items-start mb-4">
                     <h2 className="text-lg font-semibold leading-tight">{name}</h2>
 
@@ -47,7 +47,7 @@ h-full
                             onClick={() => increaseCartQuantity(id)}
                        className="
                                 w-full py-1 rounded-xl
-                                bg-gradient-to-r from-blue-500 to-sky-500
+                                bg-linear-to-r from-blue-500 to-sky-500
                                  text-xl"
                         >
                             Add to Cart
