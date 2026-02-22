@@ -1,67 +1,107 @@
-import { useShoppingCart } from "../context/ShoppingCartContext"
-import { formatCurrency } from "../utilities/formatCurrency"
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 type StoreItemProps = {
-    id : number,
-    name : string,
-    price: number,
-    imgUrl: string
-}
+    id: number;
+    name: string;
+    price: number;
+    imgUrl: string;
+};
 
-const StoreItem = ( {id, name, price, imgUrl} : StoreItemProps) => {
-    const { getItemQuantity,
-         increaseCartQuantity,
-         decreaseCartQuantity,
-         removeFromCart } = useShoppingCart()
+const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
+    const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
 
-    const quantity = getItemQuantity(id)
-
+    const quantity = getItemQuantity(id);
 
     return (
-       <div className="max-w-3xl bg-slate-200 text-black rounded-xl shadow-sm overflow-hidden">
-
-        <img 
-        className="w-full h-48 object-cover"
-        src={imgUrl} alt="product" />
-
-        <div className="p-5">
-            <div className="flex items-center justify-between text-xl">
-                <span>{name}</span>
-                <span>{price}</span>
+        <div
+           className="
+flex flex-col
+bg-slate-900
+border border-slate-800
+rounded-2xl
+overflow-hidden
+shadow-lg
+hover:shadow-black-500/20
+transition duration-300
+h-full
+"
+        >
+            {/* Image */}
+            <div className="overflow-hidden">
+                <img className="w-full h-56 object-contain transition duration-500 hover:scale-105" src={imgUrl} alt={name} />
             </div>
 
-            <p>Product description</p>
+            {/* Content */}
+            <div className="flex flex-col flex-grow p-6 text-white">
+                <div className="flex justify-between items-start mb-4">
+                    <h2 className="text-lg font-semibold leading-tight">{name}</h2>
 
-            <div className="flex flex-col gap-2 mt-5">
-                {
-                    quantity === 0 ? ( 
+                    <span className="text-digital-blue-300 font-bold text-lg">{formatCurrency(price)}</span>
+                </div>
 
-                         <button className="w-full bg-blue-600 rounded-md text-2xl text-white cursor-pointer"
-                         onClick={()=> increaseCartQuantity(id)}>+Add to cart</button>
+                {/* Spacer pushes button down */}
+                <div className="mt-auto">
+                    {quantity === 0 ? (
+                        <button
+                            onClick={() => increaseCartQuantity(id)}
+                       className="
+                                w-full py-1 rounded-xl
+                                bg-gradient-to-r from-blue-500 to-sky-500
+                                 text-xl"
+                        >
+                            Add to Cart
+                        </button>
                     ) : (
-                        <div className="flex flex-col items-center gap-2 justify-center">
+                        <div className="flex flex-col gap-3">
+                            <div className="flex justify-center items-center gap-4">
+                                <button
+                                    onClick={() => decreaseCartQuantity(id)}
+                                    className="
+                    w-9 h-9 rounded-lg
+                    bg-digital-blue-800
+                    hover:bg-digital-blue-700
+                    transition
+                  "
+                                >
+                                    −
+                                </button>
 
-                            <div className="flex gap-2 justify-center items-center">
-                                <button className="bg-blue-600 w-8 h-full rounded-md text-center text-white cursor-pointer"
-                                onClick={()=> increaseCartQuantity(id)}>+</button>
-                                <p className="text-lg"><span className="text-2xl">{quantity}</span>in Cart</p>
-                                <button className="bg-blue-600 w-8 h-full rounded-md text-center text-white cursor-pointer" 
-                                onClick={()=> decreaseCartQuantity(id)}>-</button>
+                                <span className="text-base">
+                                    <span className="text-xl font-bold text-digital-blue-300">{quantity}</span> in cart
+                                </span>
+
+                                <button
+                                    onClick={() => increaseCartQuantity(id)}
+                                    className="
+                    w-9 h-9 rounded-lg
+                    bg-digital-blue-800
+                    hover:bg-digital-blue-700
+                    transition
+                  "
+                                >
+                                    +
+                                </button>
                             </div>
 
-                            <div>
-                                <button className="bg-red-500 px-2 py-1 w-auto text-lg text-white rounded-sm cursor-pointer"
-                                onClick={()=> removeFromCart(id)}>Remove</button>
-                            </div>
+                            <button
+                                onClick={() => removeFromCart(id)}
+                                className="
+                  py-2 rounded-lg
+                  bg-red-600/80
+                  hover:bg-red-600
+                  transition duration-300
+                  text-sm
+                "
+                            >
+                                Remove
+                            </button>
                         </div>
-                    )
-                }
-               
-                    
+                    )}
+                </div>
             </div>
         </div>
-       </div>
-    )
-}
+    );
+};
 
-export default StoreItem
+export default StoreItem;

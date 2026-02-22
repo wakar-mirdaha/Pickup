@@ -13,7 +13,7 @@ export function ShoppingCart( {isOpen}: ShoppingCartProps) {
         <>
 
             <div
-                className={` bg-black/50 z-50 fixed top-0 right-0 h-full w-full max-w-md shadow-xl transition-tranform duration-300 ease-in-out 
+                className={` bg-black/80 z-60 fixed top-0 right-0 h-full w-full max-w-md shadow-xl transition-tranform duration-300 ease-in-out 
                     ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="p-6 flex flex-col h-full">
@@ -24,7 +24,7 @@ export function ShoppingCart( {isOpen}: ShoppingCartProps) {
                         </button>
                     </div>
 
-                    <div className="flex-grow overflow-y-auto">
+                    <div className="flex-grow overflow-y-auto ">
                         {cartItems.map(item => (
                             <CartItem key={item.id} {...item} />
                         ))}
