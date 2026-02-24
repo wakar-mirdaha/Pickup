@@ -4,10 +4,10 @@ const Home = () => {
   return (
    <div className="min-h-screen bg-linear-to-br from-slate-950 to-slate-900  text-white">
 
-      {/* Hero Section */}
+     
       <section className="flex flex-col items-center justify-center text-center px-6 py-28 relative overflow-hidden">
 
-        {/* Glow Background Effect */}
+        
         <div className="absolute w-96 h-96 bg-purple-700/20 blur-3xl rounded-full -top-20 -left-20"></div>
         <div className="absolute w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full bottom-0 right-0"></div>
 
@@ -40,7 +40,7 @@ Elevate Your <span className="text-blue-500">LifeStyle</span>.
         </div>
       </section>
 
-      {/* Features Section */}
+      
       <section className="py-24 px-8">
         <h2 className="text-3xl font-bold text-center mb-16 text-gray-200">
           Why Choose Us?
@@ -78,7 +78,7 @@ Elevate Your <span className="text-blue-500">LifeStyle</span>.
         </div>
       </section>
 
-      {/* CTA Section */}
+     
       <section className="py-20 text-center border-t border-slate-800">
         <h2 className="text-4xl font-bold mb-6">
           Ready to Upgrade Your Experience?

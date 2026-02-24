@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-black text-white px-6 py-20">
 
-      {/* Header */}
+    
       <div className="max-w-4xl mx-auto text-center my-16">
        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white my-6
 ">
@@ -14,7 +14,7 @@ About <span className="text-blue-500">PICKUP</span>
         </p>
       </div>
 
-      {/* Story Section */}
+      
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
         <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-8 shadow-lg hover:border-pink-500 transform-border duration-300">
@@ -42,7 +42,7 @@ About <span className="text-blue-500">PICKUP</span>
 
       </div>
 
-      {/* Vision Section */}
+      
       <div className="max-w-4xl mx-auto mt-20 text-center">
         <h2 className="text-3xl font-bold mb-6 text-pink-400">
           Our Vision

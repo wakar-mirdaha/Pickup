@@ -15,7 +15,7 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
 
     return (
         <div
-           className="
+            className="
                         flex flex-col
                         bg-slate-900
                         border border-slate-800
@@ -24,15 +24,12 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                         shadow-lg
                         hover:shadow-black-500/20
                         transition duration-300
-                        h-full
-"
-        >
-            {/* Image */}
+                        h-full">
+
             <div className="overflow-hidden">
                 <img className="w-full h-56 object-contain transition duration-500 hover:scale-105" src={imgUrl} alt={name} />
             </div>
 
-            {/* Content */}
             <div className="flex flex-col grow p-6 text-white">
                 <div className="flex justify-between items-start mb-4">
                     <h2 className="text-lg font-semibold leading-tight">{name}</h2>
@@ -40,12 +37,11 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                     <span className="text-digital-blue-300 font-bold text-lg">{formatCurrency(price)}</span>
                 </div>
 
-                {/* Spacer pushes button down */}
                 <div className="mt-auto">
                     {quantity === 0 ? (
                         <button
                             onClick={() => increaseCartQuantity(id)}
-                       className="
+                            className="
                                 w-full py-1 rounded-xl
                                 bg-linear-to-r from-blue-600/80 to-sky-600/80
                                  text-xl cursor-pointer"
@@ -58,12 +54,10 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                                 <button
                                     onClick={() => decreaseCartQuantity(id)}
                                     className="
-                    w-9 h-9 rounded-lg
-                    bg-digital-blue-800
-                    hover:bg-digital-blue-700
-                    transition
-                  "
-                                >
+                                        w-9 h-9 rounded-lg
+                                        bg-digital-blue-800
+                                        hover:bg-digital-blue-700
+                                        transition">
                                     −
                                 </button>
 
@@ -74,12 +68,10 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                                 <button
                                     onClick={() => increaseCartQuantity(id)}
                                     className="
-                    w-9 h-9 rounded-lg
-                    bg-digital-blue-800
-                    hover:bg-digital-blue-700
-                    transition
-                  "
-                                >
+                                            w-9 h-9 rounded-lg
+                                            bg-digital-blue-800
+                                            hover:bg-digital-blue-700
+                                            transition">
                                     +
                                 </button>
                             </div>
@@ -87,13 +79,11 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                             <button
                                 onClick={() => removeFromCart(id)}
                                 className="
-                  py-1 rounded-lg
-                  bg-red-600/80
-                  hover:bg-red-600
-                  transition duration-300
-                  text-xl
-                "
-                            >
+                                        py-1 rounded-lg
+                                        bg-red-600/80
+                                        hover:bg-red-600
+                                        transition duration-300
+                                        text-xl">
                                 Remove
                             </button>
                         </div>
