@@ -48,7 +48,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         </div>
 
         {/* Price + Remove */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-end sm:items-center gap-3 sm:gap-4 shrink-0">
           <p className="text-cyan-400 font-bold text-lg">
             {formatCurrency(item.price * quantity)}
           </p>

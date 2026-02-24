@@ -55,14 +55,14 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       <div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-slate-900 border-b border-slate-800 ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-slate-900/50 ${
           isMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="flex flex-col p-4 gap-4 text-center">
-          <Link onClick={() => setIsMenuOpen(false)} to="/" className="hover:text-blue-400">Home</Link>
-          <Link onClick={() => setIsMenuOpen(false)} to="/store" className="hover:text-blue-400">Store</Link>
-          <Link onClick={() => setIsMenuOpen(false)} to="/about" className="hover:text-blue-400">About</Link>
+          <Link onClick={() => setIsMenuOpen(false)} to="/" className="text-2xl hover:text-blue-400">Home</Link>
+          <Link onClick={() => setIsMenuOpen(false)} to="/store" className="text-2xl hover:text-blue-400">Store</Link>
+          <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-2xl hover:text-blue-400">About</Link>
         </div>
       </div>
     </nav>

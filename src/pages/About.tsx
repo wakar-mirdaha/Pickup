@@ -3,12 +3,11 @@ const About = () => {
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-black text-white px-6 py-20">
 
       {/* Header */}
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold 
-        bg-linear-to-r  from-blue-500 via-sky-500 to-indigo-500
-        bg-clip-text text-transparent mb-6">
-          About PickUp
-        </h1>
+      <div className="max-w-4xl mx-auto text-center my-16">
+       <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white my-6
+">
+About <span className="text-blue-500">PICKUP</span>
+</h1>
 
         <p className="text-gray-400 text-lg">
           We build experiences, not just products.

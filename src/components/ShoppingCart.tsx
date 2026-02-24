@@ -11,9 +11,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
   return (
     <div
-      className={`bg-black/80 z-60 fixed top-0 right-0 h-full w-full max-w-md shadow-xl transition-transform duration-300 ease-in-out 
-          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-    >
+      className={`bg-black/80 z-60 fixed top-0 right-0 h-full w-full max-w-lg shadow-xl transition-transform duration-300 ease-in-out 
+        overflow-y-auto pr-2 custom-scrollbar  ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+>
       <div className="p-6 flex flex-col h-full text-white">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Cart</h2>

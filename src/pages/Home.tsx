@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
-   <div className="min-h-screen bg-linear-to-br from-digital-blue-950 via-digital-blue-900 to-black text-white">
+   <div className="min-h-screen bg-linear-to-br from-slate-950 to-slate-900  text-white">
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-6 py-28 relative overflow-hidden">
@@ -11,23 +11,20 @@ const Home = () => {
         <div className="absolute w-96 h-96 bg-purple-700/20 blur-3xl rounded-full -top-20 -left-20"></div>
         <div className="absolute w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full bottom-0 right-0"></div>
 
-        <h1 className="
-text-5xl font-extrabold
-text-digital-blue-300
-mb-6
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white my-6
 ">
-Next-Level Digital Shopping
+Elevate Your <span className="text-blue-500">LifeStyle</span>.
 </h1>
 
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10">
-          Premium products. Smooth experience. Designed with precision and speed.
+        <p className="max-w-2xl text-gray-400 text-lg md:text-xl leading-relaxed mb-6">
+         Stop searching and start finding. Browse thousands of products with a seamless interface designed to make your checkout as fast as a single click.
         </p>
 
         <div className="flex gap-6">
           <Link
             to="/store"
             className="px-8 py-3 rounded-full font-semibold 
-            bg-linear-to-r from-blue-500 via-sky-500 to-indigo-500
+            bg-linear-to-r from-blue-600/80 to-sky-600/80
              text-xl"
           >
             Explore Store
@@ -90,7 +87,7 @@ Next-Level Digital Shopping
         <Link
           to="/store"
           className="px-8 py-3 rounded-full text-lg font-semibold 
-          bg-linear-to-r from-blue-500 via-sky-500 to-indigo-500 
+          bg-linear-to-r from-blue-600/80 to-sky-600/80
           hover:scale-100 transition duration-300 shadow-xl"
         >
           Shop Now

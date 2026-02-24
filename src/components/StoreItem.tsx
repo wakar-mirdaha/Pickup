@@ -47,8 +47,8 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                             onClick={() => increaseCartQuantity(id)}
                        className="
                                 w-full py-1 rounded-xl
-                                bg-linear-to-r from-blue-500 to-sky-500
-                                 text-xl"
+                                bg-linear-to-r from-blue-600/80 to-sky-600/80
+                                 text-xl cursor-pointer"
                         >
                             Add to Cart
                         </button>
@@ -87,11 +87,11 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemProps) => {
                             <button
                                 onClick={() => removeFromCart(id)}
                                 className="
-                  py-2 rounded-lg
+                  py-1 rounded-lg
                   bg-red-600/80
                   hover:bg-red-600
                   transition duration-300
-                  text-sm
+                  text-xl
                 "
                             >
                                 Remove
