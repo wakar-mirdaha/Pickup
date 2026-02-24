@@ -1,15 +1,17 @@
 import { useShoppingCart } from "../context/ShoppingCartContext"
-import storeItem from "../data/items.json"
 import { formatCurrency } from "../utilities/formatCurrency"
 
 type CartItemProps = {
-    id: number
-    quantity: number
+  id: number
+  quantity: number
 }
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart()
-  const item = storeItem.find(i => i.id === id)
+  const { removeFromCart, storeProducts } = useShoppingCart()
+  
+  // Find the product details from the API data stored in context
+  const item = storeProducts.find(i => i.id === id)
+  
   if (item == null) return null
 
   return (
@@ -20,20 +22,18 @@ export function CartItem({ id, quantity }: CartItemProps) {
       rounded-xl
       shadow-md
     ">
-
-      {/* Image */}
+      {/* Image - using 'thumbnail' from API */}
       <img
         className="w-24 h-24 rounded-lg object-cover"
-        src={item.imgUrl}
-        alt={item.name}
+        src={item.thumbnail}
+        alt={item.title}
       />
 
       {/* Content */}
       <div className="flex justify-between w-full items-center">
-
         <div className="flex flex-col gap-1">
           <p className="text-white font-semibold text-lg">
-            {item.name}
+            {item.title}
           </p>
 
           {quantity > 0 && (
@@ -49,7 +49,6 @@ export function CartItem({ id, quantity }: CartItemProps) {
 
         {/* Price + Remove */}
         <div className="flex items-center gap-4">
-
           <p className="text-cyan-400 font-bold text-lg">
             {formatCurrency(item.price * quantity)}
           </p>
@@ -58,18 +57,18 @@ export function CartItem({ id, quantity }: CartItemProps) {
             onClick={() => removeFromCart(item.id)}
             className="
               w-8 h-8 flex items-center justify-center
-              rounded-full
+              rounded-md
               bg-slate-800
               hover:bg-red-600
               hover:text-white
               transition duration-300
               text-gray-400
               text-lg
+              cursor-pointer
             "
           >
             ×
           </button>
-
         </div>
       </div>
     </div>

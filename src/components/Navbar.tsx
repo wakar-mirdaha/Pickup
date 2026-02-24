@@ -1,77 +1,72 @@
-import { NavLink } from "react-router-dom"
-import { useShoppingCart } from "../context/ShoppingCartContext"
+import { useState } from "react";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { openCart, cartQuantity } = useShoppingCart()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openCart, cartQuantity } = useShoppingCart();
 
   return (
-    <nav className="
-      sticky top-0 z-50 h-16
-      bg-digital-blue-950/80 backdrop-blur-md
-      border-b border-digital-blue-800
-      flex items-center justify-between
-      px-8
-    ">
+    <nav className="fixed top-0 w-full bg-slate-950/50 backdrop-blur-md border-b border-slate-800 text-white z-50">
+      <div className="w-full mx-auto px-6 h-18 flex items-center justify-between">
+        
+        {/* 1. Hamburger Menu - Only visible on mobile */}
+        <div className="md:hidden flex-1">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-2xl focus:outline-none"
+          >
+            {isMenuOpen ? "✕" : "☰"}
+          </button>
+        </div>
 
-      <div className="text-xl font-bold text-digital-blue-300">
-       <NavLink to={"/"}>
-        PickUp
-       </NavLink>
+        {/* 2. Logo Section - flex-1 ensures it takes 1/3 of the space on desktop */}
+        <div className="flex-1 flex items-center justify-center md:justify-start">
+          <img src="images/Pickup.svg" alt="carticon"
+          className="w-8 h-8 mr-2" />
+          <Link to="/" className="text-2xl font-bold tracking-tighter text-blue-500">
+            PICK<span className="text-white">UP</span>
+          </Link>
+        </div>
+
+        {/* 3. Desktop Nav Items - flex-1 and justify-center makes this perfectly centered */}
+        <div className="hidden md:flex flex-1 justify-center items-center gap-12 text-2xl">
+          <Link to="/" className="hover:text-blue-400 transition">Home</Link>
+          <Link to="/store" className="hover:text-blue-400 transition">Store</Link>
+          <Link to="/about" className="hover:text-blue-400 transition">About</Link>
+        </div>
+
+        {/* 4. Cart Button Section - flex-1 ensures it takes 1/3 of the space to balance the logo */}
+        <div className="flex-1 flex justify-end">
+          <button
+            onClick={openCart}
+            className="relative p-2 bg-blue-600/10 border border-blue-500/30 rounded-lg hover:bg-blue-600/30 transition group"
+          >
+            <img src="/images/shopping-cart.svg" alt="cartIcon"
+            className="w-8 h-8" />
+            {cartQuantity > 0 && (
+              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-slate-950">
+                {cartQuantity}
+              </div>
+            )}
+          </button>
+        </div>
       </div>
 
-      <div className="flex gap-8 text-lg font-medium">
-
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-digital-blue-300 border-b-2 border-digital-blue-300 pb-1"
-              : "text-gray-300 hover:text-digital-blue-400 transition"
-          }
-        >
-          Home
-        </NavLink>
-
-        <NavLink
-          to="/store"
-          className={({ isActive }) =>
-            isActive
-              ? "text-digital-blue-300 border-b-2 border-digital-blue-300 pb-1"
-              : "text-gray-300 hover:text-digital-blue-400 transition"
-          }
-        >
-          Store
-        </NavLink>
-
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? "text-digital-blue-300 border-b-2 border-digital-blue-300 pb-1"
-              : "text-gray-300 hover:text-digital-blue-400 transition"
-          }
-        >
-          About
-        </NavLink>
+      {/* Mobile Dropdown Menu */}
+      <div 
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-slate-900 border-b border-slate-800 ${
+          isMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col p-4 gap-4 text-center">
+          <Link onClick={() => setIsMenuOpen(false)} to="/" className="hover:text-blue-400">Home</Link>
+          <Link onClick={() => setIsMenuOpen(false)} to="/store" className="hover:text-blue-400">Store</Link>
+          <Link onClick={() => setIsMenuOpen(false)} to="/about" className="hover:text-blue-400">About</Link>
+        </div>
       </div>
-
-      {cartQuantity > 0 && (
-        <button onClick={openCart} className="relative group">
-          <img src="/images/shopping-cart.svg" alt="cart" 
-          className="h-10 w-10 cursor-pointer"/>
-          <div className="
-            absolute -top-2 -right-2
-            h-5 w-5 rounded-full
-            bg-red-500
-            text-xs font-bold text-white
-            flex items-center justify-center
-          ">
-            {cartQuantity}
-          </div>
-        </button>
-      )}
     </nav>
-  )
+  );
 }
 
 export default Navbar
