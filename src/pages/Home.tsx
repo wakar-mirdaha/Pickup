@@ -8,8 +8,8 @@ const Home = () => {
       <section className="flex flex-col items-center justify-center text-center px-6 py-28 relative overflow-hidden">
 
         
-        <div className="absolute w-96 h-96 bg-purple-700/20 blur-3xl rounded-full -top-20 -left-20"></div>
-        <div className="absolute w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full bottom-0 right-0"></div>
+        <div className="absolute w-56 h-56 md:w-96 md:h-96 bg-purple-700/20 blur-md md:blur-3xl rounded-full -top-20 -left-20"></div>
+        <div className="absolute w-56 h-56 md:w-72 md:h-72 bg-indigo-600/20 blur-md md:blur-3xl rounded-full bottom-25 -right-20"></div>
 
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white my-6
 ">
@@ -23,17 +23,17 @@ Elevate Your <span className="text-blue-500">LifeStyle</span>.
         <div className="flex gap-6">
           <Link
             to="/store"
-            className="px-8 py-3 rounded-full font-semibold 
+            className="z-10 px-6 py-2 text-base font-semibold rounded-full 
             bg-linear-to-r from-blue-600/80 to-sky-600/80
-             text-xl"
+            md:px-8 md:py-3 md:text-xl"
           >
             Explore Store
           </Link>
 
           <Link
             to="/about"
-            className="px-8 py-3 rounded-full border border-gray-600 
-            hover:bg-gray-800 transition duration-300 text-xl"
+            className="z-10 px-6 py-2 text-base font-semibold rounded-full border border-gray-600 
+            hover:bg-gray-800 md:px-8 md:py-3 md:text-xl "
           >
             Learn More
           </Link>
@@ -80,7 +80,7 @@ Elevate Your <span className="text-blue-500">LifeStyle</span>.
 
      
       <section className="py-20 text-center border-t border-slate-800">
-        <h2 className="text-4xl font-bold mb-6">
+        <h2 className="text-2xl md:text-4xl font-bold mb-6">
           Ready to Upgrade Your Experience?
         </h2>
 
