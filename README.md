@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# 🛍️ PickUp Shopping
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, responsive shopping-cart application built with **React**, **Tailwind CSS**, and **TypeScript**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+**Check it out here:** [https://pickup-shopping.vercel.app/](https://pickup-shopping.vercel.app/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+* **Product Feed:** Fetches and displays products from API.
+* **Shopping Cart System:** * Add/Remove items with a single click.
+    * Responsive full-screen cart overlay for mobile devices.
+    * **Body Scroll Lock:** Implemented custom hooks to prevent background scrolling when the cart is open on mobile.
+* **Responsive UI:** Optimized for everything from small mobile screens to large desktop monitors.
+* **Glassmorphism Design:** Modern aesthetic with subtle gradients, shadows, and blurred backgrounds.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **Frontend:** React 18+
+* **Styling:** Tailwind CSS (Utility-first styling)
+* **Language:** TypeScript (For type safety and better developer experience)
+* **Data Source:** [DummyJSON API](https://dummyjson.com/)
+* **Deployment:** Vercel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Installation & Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/pickup-shopping.git](https://github.com/your-username/pickup-shopping.git)
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+4.  **Open in browser:** `http://localhost:5173`
+
+---
+
+## 🔧 Custom Hooks & Logic
+
+### `useScrollLock`
+To enhance the mobile UX, I developed a custom TypeScript hook that disables background scrolling when the Cart or any Modal is active.
+
+```typescript
+// Prevents "Scroll Leak" on mobile devices
+export const useScrollLock = (isLocked: Boolean) =>{
+    useEffect( ()=>{
+        const isMobile = () => window.innerWidth < 768
+
+        if(isLocked && isMobile()){
+            document.body.classList.add('overflow-hidden','h-screen','touch-none')
+        }else{
+            document.body.classList.remove('overflow-hidden','h-screen','touch-none')
+        }
+
+        return () =>{
+            document.body.classList.remove('overflow-hidden','h-screen','touch-none')
+        }
+
+    },[isLocked])
+}
