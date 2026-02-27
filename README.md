@@ -35,7 +35,7 @@ A high-performance, responsive shopping-cart application built with **React**, *
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/pickup-shopping.git](https://github.com/your-username/pickup-shopping.git)
+    git clone [https://github.com/your-wakar-mirdaha/pickup-shopping.git](https://github.com/wakar-mirdaha/pickup-shopping.git)
     ```
 2.  **Install dependencies:**
     ```bash
