@@ -2,6 +2,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import { CartItem } from "./CartItem";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { useEffect } from "react";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 type ShoppingCartProps = {
   isOpen: boolean
@@ -10,17 +11,19 @@ type ShoppingCartProps = {
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems, storeProducts } = useShoppingCart();
 
-   useEffect(()=>{
-    const isMobile = window.innerWidth < 768 
-      if(isOpen && isMobile) {
-        document.body.classList.add('overflow-hidden','h-screen','touch-none')
-      }else{
-        document.body.classList.remove('overflow-hidden','h-screen','touch-none')
-      }
-      return () => {
-      document.body.classList.remove('overflow-hidden', 'h-screen', 'touch-none')
-    };
-    },[isOpen])
+  //  useEffect(()=>{
+  //   const isMobile = window.innerWidth < 768 
+  //     if(isOpen && isMobile) {
+  //       document.body.classList.add('overflow-hidden','h-screen','touch-none')
+  //     }else{
+  //       document.body.classList.remove('overflow-hidden','h-screen','touch-none')
+  //     }
+  //     return () => {
+  //     document.body.classList.remove('overflow-hidden', 'h-screen', 'touch-none')
+  //   };
+  //   },[isOpen])
+
+  useScrollLock(isOpen)
   return (
     <div
       className={`bg-black/80 z-60 fixed top-0 right-0 h-full w-full max-w-lg shadow-xl transition-transform duration-300 ease-in-out 
