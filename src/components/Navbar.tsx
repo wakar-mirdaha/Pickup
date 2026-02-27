@@ -37,7 +37,7 @@ const Navbar = () => {
                 <div className="flex-1 flex justify-end">
                     <button
                         onClick={openCart}
-                        className="relative p-2 bg-blue-600/10 border border-blue-500/30 rounded-lg hover:bg-blue-600/30 transition group"
+                        className="relative p-2 bg-blue-600/10 border border-blue-500/30 rounded-lg hover:bg-blue-600/30 transition group cursor-pointer"
                     >
                         <img src="/images/shopping-cart.svg" alt="cartIcon" className="w-8 h-8" />
                         {cartQuantity > 0 && (
